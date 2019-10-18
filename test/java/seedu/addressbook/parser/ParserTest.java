@@ -1,7 +1,6 @@
 package seedu.addressbook.parser;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 import static seedu.addressbook.common.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.addressbook.common.Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX;
 
@@ -45,7 +44,7 @@ public class ParserTest {
      * Note how the names of the test methods does not follow the normal naming convention.
      * That is because our coding standard allows a different naming convention for test methods.
      */
-
+   
     @Test
     public void parse_emptyInput_returnsIncorrect() {
         final String[] emptyInputs = { "", "  ", "\n  \n" };
