@@ -8,7 +8,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="AddBookGrupo4" />
-<<<<<<< HEAD
     <orderEntry type="module-library" scope="TEST">
       <library name="JUnit5.4">
         <CLASSES>
@@ -21,7 +20,5 @@
         <SOURCES />
       </library>
     </orderEntry>
-=======
->>>>>>> be32f2dbe87d400a441440d1aaabcb07b9aaae72
   </component>
 </module>
