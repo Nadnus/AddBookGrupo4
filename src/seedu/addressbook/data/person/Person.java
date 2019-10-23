@@ -1,21 +1,139 @@
 package seedu.addressbook.data.person;
 
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 import seedu.addressbook.data.tag.Tag;
+import seedu.addressbook.data.tag.Tagging;
 
 /**
  * Represents a Person in the address book.
  * Guarantees: details are present and not null, field values are validated.
  */
 public class Person implements ReadOnlyPerson {
+    private static int sequence_number = 1;
+
+    public List<Tagging> values = new List<Tagging>() {
+        @Override
+        public int size() {
+            return 0;
+        }
+
+        @Override
+        public boolean isEmpty() {
+            return false;
+        }
+
+        @Override
+        public boolean contains(Object o) {
+            return false;
+        }
+
+        @Override
+        public Iterator<Tagging> iterator() {
+            return null;
+        }
+
+        @Override
+        public Object[] toArray() {
+            return new Object[0];
+        }
+
+        @Override
+        public <T> T[] toArray(T[] ts) {
+            return null;
+        }
+
+        @Override
+        public boolean add(Tagging tagging) {
+            return false;
+        }
+
+        @Override
+        public boolean remove(Object o) {
+            return false;
+        }
+
+        @Override
+        public boolean containsAll(Collection<?> collection) {
+            return false;
+        }
+
+        @Override
+        public boolean addAll(Collection<? extends Tagging> collection) {
+            return false;
+        }
+
+        @Override
+        public boolean addAll(int i, Collection<? extends Tagging> collection) {
+            return false;
+        }
+
+        @Override
+        public boolean removeAll(Collection<?> collection) {
+            return false;
+        }
+
+        @Override
+        public boolean retainAll(Collection<?> collection) {
+            return false;
+        }
+
+        @Override
+        public void clear() {
+
+        }
+
+        @Override
+        public Tagging get(int i) {
+            return null;
+        }
+
+        @Override
+        public Tagging set(int i, Tagging tagging) {
+            return null;
+        }
+
+        @Override
+        public void add(int i, Tagging tagging) {
+
+        }
+
+        @Override
+        public Tagging remove(int i) {
+            return null;
+        }
+
+        @Override
+        public int indexOf(Object o) {
+            return 0;
+        }
+
+        @Override
+        public int lastIndexOf(Object o) {
+            return 0;
+        }
+
+        @Override
+        public ListIterator<Tagging> listIterator() {
+            return null;
+        }
+
+        @Override
+        public ListIterator<Tagging> listIterator(int i) {
+            return null;
+        }
+
+        @Override
+        public List<Tagging> subList(int i, int i1) {
+            return null;
+        }
+    };
 
     private Name name;
     private Phone phone;
     private Email email;
     private Address address;
+    private int seqnumber;
 
     private final Set<Tag> tags = new HashSet<>();
 
@@ -28,6 +146,12 @@ public class Person implements ReadOnlyPerson {
         this.email = email;
         this.address = address;
         this.tags.addAll(tags);
+        this.seqnumber = sequence_number;
+        sequence_number += 1;
+        for (Tag t: tags ) {
+            Tagging val = new Tagging(true);
+            values.add(val);
+        }
     }
 
     /**
@@ -66,8 +190,14 @@ public class Person implements ReadOnlyPerson {
      * Replaces this person's tags with the tags in the argument tag set.
      */
     public void setTags(Set<Tag> replacement) {
+        for (Tag t: tags ) {
+            values.add(new Tagging(false));
+        }
         tags.clear();
         tags.addAll(replacement);
+        for (Tag t: tags ) {
+            values.add(new Tagging(true));
+        }
     }
 
     @Override

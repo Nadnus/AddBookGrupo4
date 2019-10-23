@@ -56,7 +56,9 @@ public class StorageFile {
             List<String> encodedAddressBook = AddressBookEncoder.encodeAddressBook(addressBook);
             Files.write(path, encodedAddressBook);
         } catch (IOException ioe) {
-            throw new StorageOperationException("Error writing to file: " + path);
+            //throw new StorageOperationException("Error writing to file: " + path);
+            System.out.println("|| Error writing to file: " + path);
+            System.out.println("|| File is readonly");
         }
     }
 

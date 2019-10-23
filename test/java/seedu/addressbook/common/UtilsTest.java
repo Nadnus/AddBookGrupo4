@@ -54,6 +54,8 @@ public class UtilsTest {
         // at least one item, some of which are null
         assertTrue(Utils.isAnyNull(null, 1));
         assertTrue(Utils.isAnyNull("A", null, "C"));
+
+        assertTrue(Utils.isAnyNull(""));
     }
 
     private void assertAreUnique(Object... objects) {

@@ -96,14 +96,7 @@ public class TextUi {
      */
     public void showWelcomeMessage(String version, String storageFilePath) {
         String storageFileInfo = String.format(MESSAGE_USING_STORAGE_FILE, storageFilePath);
-        showToUser(
-                formatter.DIVIDER,
-                formatter.DIVIDER,
-                MESSAGE_WELCOME,
-                version,
-                MESSAGE_PROGRAM_LAUNCH_ARGS_USAGE,
-                storageFileInfo,
-                formatter.DIVIDER);
+        out.println(formatter.welcomemessage(version, storageFileInfo));
     }
 
     public void showGoodbyeMessage() {

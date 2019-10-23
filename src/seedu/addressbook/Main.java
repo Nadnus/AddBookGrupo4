@@ -87,7 +87,13 @@ public class Main {
             CommandResult result = executeCommand(command);
             recordResult(result);
             ui.showResultToUser(result);
-
+            if(userCommandText.split(" ")[0].equals("add"))
+            {
+                command = new Parser().parseCommand("list");
+                result = executeCommand(command);
+                recordResult(result);
+                ui.showResultToUser(result);
+            }
         } while (!ExitCommand.isExit(command));
     }
 

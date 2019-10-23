@@ -6,7 +6,7 @@ import seedu.addressbook.data.exception.IllegalValueException;
  * Represents a Person's address in the address book.
  * Guarantees: immutable; is valid as declared in {@link #isValidAddress(String)}
  */
-public class Address {
+public class Address extends Contact implements Printable {
 
     public static final String EXAMPLE = "123, some street";
     public static final String MESSAGE_ADDRESS_CONSTRAINTS = "Person addresses can be in any format";
@@ -17,7 +17,8 @@ public class Address {
     public final Unit unit = new Unit();
     public final Postal_Code postal_code = new Postal_Code();
 
-    private boolean isPrivate;
+    public final String value;
+
 
     /**
      * Validates given address.
@@ -33,7 +34,7 @@ public class Address {
         }
         this.street.setValue(splittedAddress[0]);
         this.block.setValue(splittedAddress[1]);
-        this.unit.setValue(splittedAddress[2]);
+        this.value = trimmedAddress;
     }
 
     /**
@@ -45,7 +46,6 @@ public class Address {
 
     @Override
     public String toString() {
-        String value = street.getValue() + ", " + block.getValue() + ", " + unit.getValue();
         return value;
     }
 
@@ -57,11 +57,7 @@ public class Address {
     }
 
     @Override
-    public int hashCode() {
-        return toString().hashCode();
-    }
-
-    public boolean isPrivate() {
-        return isPrivate;
+    public String getPrintableString() {
+        return toString();
     }
 }
